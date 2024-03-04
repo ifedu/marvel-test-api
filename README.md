@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Description
+
+Welcome, this application consists of a test using Marvel's public API.
+
+The app allows you to search among characters, add and view your favorites, and click on characters to get more details such as their description or comics in which they appear.
+
 ## Getting Started
 
 First, run the development server:
@@ -29,8 +35,31 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployed on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The deployed project can be viewed at https://marvel-test-api-gamma.vercel.app/.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Directory tree
+
+- [public/](./marvel/public)
+  - [images/](./marvel/public/images) _route for the static images_
+- [src/](./marvel/src) _main directory_
+  - [app/](./marvel/src/app) _views_
+    - [(home)/](<./marvel/src/app/(home)>) _main route_
+    - [character/](./marvel/src/app/character)
+      - [[id]/](./marvel/src/app/character/[id]) _dynamic route_
+  - [components/](./marvel/src/components) _components_
+    - [CharacterCard/](./marvel/src/components/CharacterCard)
+    - [CharacterDetail/](./marvel/src/components/CharacterDetail)
+    - [Header/](./marvel/src/components/Header)
+    - [SearchBar/](./marvel/src/components/SearchBar)
+  - [contexts/](./marvel/src/contexts) _contexts_
+  - [hooks/](./marvel/src/hooks) _hooks_
+  - [models/](./marvel/src/models) _models_
+  - [repositories/](./marvel/src/repositories) _communication with the server_
+  - [utils/](./marvel/src/utils) _shared code between the app_
+
+## Used Libs
+
+- Nextjs
+- Axios
