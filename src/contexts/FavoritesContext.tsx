@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useState, useContext, ReactNode } from "react";
 import { Character } from "src/models/character";
 
@@ -20,7 +22,9 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined
 );
 
-export function FavoritesProvider({ children }: FavoritesProviderProps) {
+export default function FavoritesProvider({
+  children,
+}: FavoritesProviderProps) {
   const [favorites, setFavorites] = useState<Character[]>([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 

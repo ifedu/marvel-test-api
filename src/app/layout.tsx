@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import "./layout.css";
+import Header from "src/components/Header/Header";
+import FavoritesProvider from "src/contexts/FavoritesContext";
 
 const roboto = Roboto_Condensed({
   style: "normal",
@@ -22,9 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <header></header>
-        <div className="MainLayout">{children}</div>
-        <footer></footer>
+        <FavoritesProvider>
+          <Header></Header>
+          <div className="MainLayout">{children}</div>
+        </FavoritesProvider>
       </body>
     </html>
   );

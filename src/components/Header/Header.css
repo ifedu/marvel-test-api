@@ -1,0 +1,17 @@
+.HeaderComponent {
+  align-items: center;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 48px;
+
+  .favorites {
+    align-items: center;
+    display: flex;
+
+    .favoritesCount {
+      color: #fff;
+      margin-left: 10px;
+    }
+  }
+}
