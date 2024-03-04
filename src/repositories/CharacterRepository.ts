@@ -7,29 +7,15 @@ export const fetchCharacters = async (
   searchQuery: string
 ): Promise<Character[]> => {
   try {
-    const params = new URLSearchParams({
-      apikey: MARVEL_API_KEY!,
-      ...(searchQuery && { nameStartsWith: searchQuery }),
-      limit: "50",
+    const response = await axios.get(`${MARVEL_API_BASE_URL}/characters`, {
+      params: {
+        apikey: MARVEL_API_KEY!,
+        ...(searchQuery && { nameStartsWith: searchQuery }),
+        limit: "50",
+      },
     });
 
-    const response = await axios.get(
-      `${MARVEL_API_BASE_URL}/characters?${params}`
-    );
-
-    const characters = response.data.data.results.map(
-      (item: any): Character => ({
-        id: item.id,
-        name: item.name,
-        description: item.description,
-        thumbnail: {
-          path: item.thumbnail.path,
-          extension: item.thumbnail.extension,
-        },
-      })
-    );
-
-    return characters;
+    return response.data.data.results;
   } catch (error) {
     console.error("Error fetching characters from Marvel API:", error);
     throw new Error("Failed to fetch characters");
@@ -55,7 +41,11 @@ export const fetchCharacterComics = async (
   const response = await axios.get(
     `${MARVEL_API_BASE_URL}/characters/${characterId}/comics`,
     {
-      params: { apikey: MARVEL_API_KEY },
+      params: {
+        apikey: MARVEL_API_KEY,
+        limit: "20",
+        orderBy: "onsaleDate",
+      },
     }
   );
 
