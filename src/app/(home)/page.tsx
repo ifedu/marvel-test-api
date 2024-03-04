@@ -35,6 +35,7 @@ export default function HomePage() {
         <button
           className={styles.favorites}
           onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+          aria-label="Toggle favorite characters"
         >
           <Image
             src="/images/heart-fill.png"

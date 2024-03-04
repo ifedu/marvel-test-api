@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./CharacterCard.module.css";
 import { useFavorites } from "src/contexts/FavoritesContext";
 import { Character } from "src/models/character";
+import Link from "next/link";
 
 type CharacterCardProps = {
   character: Character;
@@ -18,12 +19,14 @@ export default function CharacterCard({ character }: CharacterCardProps) {
 
   return (
     <div className={styles.card}>
-      <Image
-        alt={character.name}
-        height="224"
-        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-        width="224"
-      />
+      <Link href={`/character/${character.id}`} passHref>
+        <Image
+          alt={character.name}
+          height="224"
+          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          width="224"
+        />
+      </Link>
 
       <div className={styles.description}>
         <span>{character.name}</span>
