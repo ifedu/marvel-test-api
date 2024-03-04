@@ -14,6 +14,9 @@ const roboto = Roboto_Condensed({
 export const metadata: Metadata = {
   title: "Marvel App",
   description: "API Test",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
