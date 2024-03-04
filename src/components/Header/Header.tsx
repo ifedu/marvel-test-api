@@ -3,19 +3,22 @@
 import Image from "next/image";
 import { useFavorites } from "src/contexts/FavoritesContext";
 import "./Header.css";
+import Link from "next/link";
 
 export default function Header() {
   const { favorites, showOnlyFavorites, setShowOnlyFavorites } = useFavorites();
 
   return (
     <header className="HeaderComponent">
-      <Image
-        className="logo"
-        alt="Logo"
-        height="52"
-        src="/images/logo.png"
-        width="130"
-      />
+      <Link href="/">
+        <Image
+          className="logo"
+          alt="Logo"
+          height="52"
+          src="/images/logo.png"
+          width="130"
+        />
+      </Link>
       <button
         className="favorites"
         onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
