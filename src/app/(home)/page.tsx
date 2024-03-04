@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import styles from "./page.module.css";
+import "./page.css";
 import CharacterCard from "src/components/CharacterCard/CharacterCard";
 import SearchBar from "src/components/SearchBar/SearchBar";
 import { useFavorites } from "src/contexts/FavoritesContext";
@@ -23,17 +23,17 @@ export default function HomePage() {
   }
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
+    <div className="HomePage">
+      <header className="header">
         <Image
-          className={styles.logo}
+          className="logo"
           alt="Logo"
           height="52"
           src="/images/logo.png"
           width="130"
         />
         <button
-          className={styles.favorites}
+          className="favorites"
           onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
           aria-label="Toggle favorite characters"
         >
@@ -43,13 +43,13 @@ export default function HomePage() {
             width="24"
             height="24"
           />
-          <span className={styles.favoritesCount}>{favorites.length}</span>
+          <span className="favoritesCount">{favorites.length}</span>
         </button>
       </header>
 
       <SearchBar onSearch={setSearchQuery} resultsCount={characters.length} />
 
-      <div className={styles.characterGrid}>
+      <div className="characterGrid">
         {renderCharacters(displayedCharacters)}
       </div>
     </div>

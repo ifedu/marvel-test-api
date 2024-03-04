@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import styles from "./CharacterCard.module.css";
+import "./CharacterCard.css";
 import { useFavorites } from "src/contexts/FavoritesContext";
 import { Character } from "src/models/character";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
   };
 
   return (
-    <div className={styles.card}>
+    <div className="CharacterCard">
       <Link href={`/character/${character.id}`} passHref>
         <Image
           alt={character.name}
@@ -28,7 +28,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
         />
       </Link>
 
-      <div className={styles.description}>
+      <div className="description">
         <span>{character.name}</span>
         <button onClick={handleFavoriteClick}>
           <Image

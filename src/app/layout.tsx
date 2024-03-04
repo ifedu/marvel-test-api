@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
-import styles from "./layout.module.css";
+import "./layout.css";
 
 const roboto = Roboto_Condensed({
   style: "normal",
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <header></header>
-        <div className={styles.container}>{children}</div>
+        <div className="MainLayout">{children}</div>
         <footer></footer>
       </body>
     </html>
