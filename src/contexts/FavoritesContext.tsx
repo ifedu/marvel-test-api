@@ -39,7 +39,7 @@ export default function FavoritesProvider({
   }
 
   function isFavorite(character: Character) {
-    return favorites.some((fav) => fav.id === character.id);
+    return favorites.some((fav) => fav?.id === character?.id);
   }
 
   return (
