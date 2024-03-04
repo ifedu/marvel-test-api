@@ -3,14 +3,16 @@
 import Image from "next/image";
 import { useFavorites } from "src/contexts/FavoritesContext";
 import "./Header.css";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function Header() {
+  const router = useRouter();
   const { favorites, showOnlyFavorites, setShowOnlyFavorites } = useFavorites();
 
   return (
     <header className="HeaderComponent">
-      <Link href="/">
+      <button onClick={() => displayFavoritesAndGoToHome(router, false)}>
         <Image
           className="logo"
           alt="Logo"
@@ -18,10 +20,10 @@ export default function Header() {
           src="/images/logo.png"
           width="130"
         />
-      </Link>
+      </button>
       <button
         className="favorites"
-        onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+        onClick={() => displayFavoritesAndGoToHome(router, true)}
         aria-label="Toggle favorite characters"
       >
         <Image
@@ -34,4 +36,12 @@ export default function Header() {
       </button>
     </header>
   );
+
+  function displayFavoritesAndGoToHome(
+    router: AppRouterInstance,
+    display: boolean
+  ) {
+    setShowOnlyFavorites(display);
+    router.push("/");
+  }
 }

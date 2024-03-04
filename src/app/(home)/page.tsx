@@ -13,9 +13,11 @@ export default function HomePage() {
   const { characters } = useCharacters(searchQuery);
   const { favorites, showOnlyFavorites } = useFavorites();
 
-  const displayedCharacters = showOnlyFavorites ? favorites : characters;
+  function renderCharacters() {
+    const charactersToRender: Character[] = showOnlyFavorites
+      ? favorites
+      : characters;
 
-  function renderCharacters(charactersToRender: Character[]) {
     return charactersToRender.map((character) => (
       <CharacterCard key={character.id} character={character} />
     ));
@@ -23,11 +25,10 @@ export default function HomePage() {
 
   return (
     <div className="HomePage">
+      {showOnlyFavorites && <h1>Favorites</h1>}
       <SearchBar onSearch={setSearchQuery} resultsCount={characters.length} />
 
-      <div className="characterGrid">
-        {renderCharacters(displayedCharacters)}
-      </div>
+      <div className="characterGrid">{renderCharacters()}</div>
     </div>
   );
 }
