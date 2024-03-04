@@ -40,9 +40,3 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #f00;
 }
-
-@media (max-width: 700px) {
-}
-
-@media (min-width: 701px) and (max-width: 1120px) {
-}
