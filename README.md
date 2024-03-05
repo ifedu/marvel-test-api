@@ -57,6 +57,7 @@ The deployed project can be viewed at https://marvel-test-api-gamma.vercel.app/.
   - [hooks/](./marvel/src/hooks) _hooks_
   - [models/](./marvel/src/models) _models_
   - [repositories/](./marvel/src/repositories) _communication with the server_
+  - [uses-cases/](./marvel/src/uses-cases) _transform data from repositories to serve hooks_
   - [utils/](./marvel/src/utils) _shared code between the app_
 
 ## Used Libs
