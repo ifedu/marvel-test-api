@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Character } from "src/models/character";
-import { fetchCharacters } from "src/repositories/CharacterRepository";
+import { getCharacters } from "src/use-cases/characterUseCases";
 
 export default function useCharacters(searchQuery: string) {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -12,8 +12,8 @@ export default function useCharacters(searchQuery: string) {
       setIsLoading(true);
       setError(null);
       try {
-        const fetchedCharacters = await fetchCharacters(searchQuery);
-        setCharacters(fetchedCharacters);
+        const characters: any = await getCharacters(searchQuery);
+        setCharacters(characters);
       } catch (error) {
         setError(error as Error);
       } finally {

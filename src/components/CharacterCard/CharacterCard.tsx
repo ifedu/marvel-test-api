@@ -23,7 +23,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
         <Image
           alt={character.name}
           height="224"
-          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          src={character.img}
           width="224"
         />
       </Link>

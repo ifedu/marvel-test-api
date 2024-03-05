@@ -8,7 +8,7 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 export default function Header() {
   const router = useRouter();
-  const { favorites, showOnlyFavorites, setShowOnlyFavorites } = useFavorites();
+  const { favorites, setShowOnlyFavorites } = useFavorites();
 
   return (
     <header className="HeaderComponent">

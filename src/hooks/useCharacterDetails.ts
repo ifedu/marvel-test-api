@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Character } from "src/models/character";
 import { Comic } from "src/models/comic";
 import {
-  fetchCharacterComics,
-  fetchCharacterDetails,
-} from "src/repositories/CharacterRepository";
+  getCharacterComics,
+  getCharacterDetails,
+} from "src/use-cases/characterUseCases";
 
 export const useCharacterDetails = (characterId: string) => {
   const [character, setCharacter] = useState<Character | null>(null);
@@ -16,8 +16,8 @@ export const useCharacterDetails = (characterId: string) => {
       if (!characterId) return;
       setLoading(true);
       try {
-        const characterData = await fetchCharacterDetails(characterId);
-        const comicsData = await fetchCharacterComics(characterId);
+        const characterData = await getCharacterDetails(characterId);
+        const comicsData = await getCharacterComics(characterId);
         setCharacter(characterData);
         setComics(comicsData);
       } catch (error) {

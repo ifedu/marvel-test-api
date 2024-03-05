@@ -21,7 +21,7 @@ export default function CharacterPage() {
       <div className="container-header">
         <div className="header">
           <Image
-            src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+            src={character.img}
             alt={character.name}
             width={384}
             height={384}
@@ -61,18 +61,11 @@ export default function CharacterPage() {
 
   function renderComics(comics: Comic[]) {
     return comics.map((comic) => {
-      const year = new Date(comic.dates[0].date).getFullYear();
-
       return (
         <div key={comic.id} className="comic">
-          <Image
-            src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-            alt={comic.title}
-            width={180}
-            height={270}
-          />
+          <Image src={comic.img} alt={comic.title} width={180} height={270} />
           <span className="comicTitle">{comic.title}</span>
-          <span className="year">{year}</span>
+          <span className="year">{comic.year}</span>
         </div>
       );
     });

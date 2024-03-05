@@ -1,4 +1,4 @@
-export interface Character {
+export interface CharacterAPI {
   id: number;
   name: string;
   description: string;
@@ -6,4 +6,11 @@ export interface Character {
     path: string;
     extension: string;
   };
+}
+
+export interface Character {
+  description: string;
+  id: number;
+  img: string;
+  name: string;
 }
