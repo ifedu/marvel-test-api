@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchBar.css";
 
 type SearchBarProps = {
@@ -7,7 +7,7 @@ type SearchBarProps = {
 };
 
 export default function SearchBar({ onSearch, resultsCount }: SearchBarProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = React.useState("");
 
   return (
     <div className="SearchBarComponent">

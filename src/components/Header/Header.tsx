@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useRouter } from "next/navigation";
 import { useFavorites } from "src/contexts/FavoritesContext";
 import "./Header.css";
-import { useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function Header() {
   const router = useRouter();

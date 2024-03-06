@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import "./page.css";
 import CharacterCard from "src/components/CharacterCard/CharacterCard";
 import SearchBar from "src/components/SearchBar/SearchBar";
@@ -9,7 +9,7 @@ import useCharacters from "src/hooks/useCharacters";
 import { Character } from "src/models/character";
 
 export default function HomePage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = React.useState("");
   const { characters } = useCharacters(searchQuery);
   const { favorites, showOnlyFavorites } = useFavorites();
 
