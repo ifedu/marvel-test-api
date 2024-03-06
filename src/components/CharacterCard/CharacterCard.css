@@ -1,7 +1,7 @@
 .CharacterCard {
-  background-color: #000;
+  background-color: var(--black);
   clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 96% 100%, 0% 100%);
-  color: #fff;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   font-size: 14px;
@@ -15,7 +15,7 @@
 
   .description {
     align-items: center;
-    background-color: #000;
+    background-color: var(--black);
     border-top: 5px solid var(--red);
     display: flex;
     justify-content: space-between;
